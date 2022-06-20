@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./dist/main.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&family=Oswald:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <script src="./dist/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Coinview</title>
+</head>
+
+<body>
+    <header>
+        <h1>Coinview</h1>
+    </header>
+
+    <section class="main-sect">
+        <div class="chart">
+            <canvas id="main-chart" width="700" height="300">
+                
+            </canvas>
+        </div>
+        <div class="nav">Filter Section
+            <div class="coin-selector">Select Coins to View
+                <ul>
+                    <li class="selector" id="selector-one"></li>
+                    <li class="selector" id="selector-two"></li>
+                    <li class="selector" id="selector-three"></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="widgets">
+
+        <div class="data-widget" id="1">
+            <ul>
+            </ul>
+        </div>
+
+        <div class="data-widget" id="2">
+            <ul>
+            </ul>
+        </div>
+
+        <div class="data-widget" id="3">
+            <ul>
+            </ul>
+        </div>
+
+    </section>
+
+    <section class="overview-chart">
+        <div class="size-chart">Overview Chart</div>
+    </section>
+</body>
+
+</html>

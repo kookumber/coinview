@@ -1,0 +1,7 @@
+body, header, div, ul, li, span {
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #202121;
+    font-family: "inter", sans-serif;
+}

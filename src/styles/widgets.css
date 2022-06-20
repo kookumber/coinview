@@ -1,0 +1,41 @@
+.widgets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.data-widget {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+    font-weight: 600;
+    padding-top: 30px;
+    align-items: center;
+    border: 1px solid rgb(190, 186, 186);
+    box-shadow: 0 0.125rem 0.25rem rgb(19 31 51 / 10%);
+    position: relative;
+    
+}
+
+.data-widget ul {
+    padding: 0;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.data-widget ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    margin: 10px;
+}
+
+.data-widget ul li div:first-child{
+    font-weight: 600;
+}

@@ -1,0 +1,16 @@
+.overview-chart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.size-chart {
+    width: 930px;
+    height: 300px;
+    border: 1px solid rgb(190, 186, 186);
+    box-shadow: 0 0.125rem 0.25rem rgb(19 31 51 / 10%);
+}
+
