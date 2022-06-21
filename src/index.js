@@ -15,7 +15,12 @@ const coinNames = [
     "tron",
     "stellar",
     "algorand",
-    "apecoin"
+    "apecoin",
+    "tether",
+    "uniswap",
+    "chainlink",
+    "filecoin",
+    "monero"
 ]
 
 async function mainSetup() {
@@ -53,6 +58,13 @@ async function mainSetup() {
             } else {
                 cardData.renderCardData("3")
             }
+
+            //Add code to re-run graphing
+
+            const updatedChartResponse = new CoinChartData()
+            await updatedChartResponse.updateCoinArrs()
+            updatedChartResponse.renderChart()
+            
         }
 
         selector.className = "selected-coin"
@@ -72,10 +84,10 @@ async function mainSetup() {
     document.getElementById("selector-two").firstChild.children[1].selected = "selected"
     document.getElementById("selector-three").firstChild.children[3].selected = "selected"
     
-    const newChart = new Charter
     const chartResponse = new CoinChartData()
-    chartResponse.logSelectedVals()
-    chartResponse.getMarketHistory("bitcoin", "2022-01-01", "2022-06-01")
+    await chartResponse.updateCoinArrs()
+    chartResponse.renderChart()
+
     
 }
 

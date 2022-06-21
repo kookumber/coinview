@@ -1,3 +1,6 @@
+
+import { Charter } from './overviewChart.js'
+
 export class CoinChartData{
 
     constructor(){
@@ -5,30 +8,81 @@ export class CoinChartData{
         this.coinTwoData = []
         this.coinThreeData = []
         this.dateArr = []
-    }   
+        this.selectedCoins = this.getSelectedVals() //["btc", "eth"]
+        // this.renderChart = this.renderChart()
+    }
 
+    async updateCoinArrs(){
+        // let coinArrs = [this.coinOneData, this.coinTwoData, this.coinThreeData]
+        for(let i = 0; i < 3; i++){
+            const coinStr = this.selectedCoins[i]
+            await this.getMarketHistory(coinStr, '2022-02-15', '2022-06-01', i)
+        }
+    }
 
-    getMarketHistory(coinName, startDate, endDate) {
+    getMarketHistory(coinName,startDate, endDate, arrNum) {
 
         startDate = Math.floor(new Date(startDate).getTime() / 1000)
         endDate = Math.floor(new Date(endDate).getTime() / 1000)
-
+        
         return fetch(`https://api.coingecko.com/api/v3/coins/${coinName}/market_chart/range?vs_currency=usd&from=${startDate}&to=${endDate}`)
             .then(response => response.json())
-            .then(response => this.saveDateLabel(response))
+            .then(response => this.saveMarketHistory(response, arrNum))
             .catch(err => console.error(err))
     }
 
-    saveDateLabel(response) {
-        let market_caps = response.market_caps
-        market_caps.forEach((el) => {
+    //Using this function to run inside of getMarketHistory function; which will store fetch responses in different data arrs
+    saveMarketHistory(response, arrNum) { 
+        let marketCaps = response.market_caps
+        marketCaps.forEach((el) => {
             let date = new Date(el[0]).toLocaleDateString("en-US")
-            this.dateArr.push(date)
+            let marketCap = el[1]
+            if(this.dateArr.length < marketCaps.length){
+                this.dateArr.push(date)
+            }
+            if(arrNum === 0) {
+                this.coinOneData.push(marketCap)
+            } else if(arrNum === 1) {
+                this.coinTwoData.push(marketCap)
+            } else {
+                this.coinThreeData.push(marketCap)
+            }
         })
     }
 
-    logSelectedVals(){
+    //Function simply gets all our selector elements and saves the selected values into an array
+    getSelectedVals(){
         const selectors = document.getElementsByClassName("selected-coin")
-        console.log(selectors)
+        const selectedCoins = []
+        for(const selector of selectors){
+            selectedCoins.push(selector.value)
+        }
+        return selectedCoins
+    }
+    
+    renderChart(){
+
+        const canvasParent = document.getElementsByClassName("chart")[0] //Looks up the div where we're creating the canvas
+
+        canvasParent.removeChild(canvasParent.lastElementChild) //Remove existing canvas so that we can render a new one with updated data
+
+        const newCanvas = document.createElement("canvas") //Create a new canvas element
+
+        //Set new Canvas paraments
+        newCanvas.id = "main-chart"
+        newCanvas.height = "300px"
+        newCanvas.width = "700px"
+
+        canvasParent.appendChild(newCanvas) //Appends the new canvase to the document
+
+
+        const chart = new Charter(this.dateArr, this.coinOneData, this.coinTwoData, this.coinThreeData) //Creates new Chart instance with this constructor variables we set up
+        
+        //Renames the labels to match the coins data
+        for(let i = 0; i < this.selectedCoins.length; i++){
+            chart.dataSets.datasets[i].label = this.selectedCoins[i]
+        }
+
+        chart.renderChart() //Runs the render function from the Charter instance
     }
 }

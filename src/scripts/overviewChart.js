@@ -3,35 +3,65 @@ import Chart from 'chart.js/auto'
 
 export class Charter {
 
-    mainChart = document.getElementById('main-chart')
+    constructor(labels, dataSetOne, dataSetTwo, dataSetThree){
+        this.labels = labels
+        this.dataSetOne = dataSetOne
+        this.dataSetTwo = dataSetTwo
+        this.dataSetThree = dataSetThree
+        this.dataSets = {
+            labels: this.labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(38, 70, 83)',
+                borderColor: 'rgb(38, 70, 83)',
+                data: this.dataSetOne
+            },
+            {
+                label: 'Second set',
+                backgroundColor: 'rgb(42, 157, 143)',
+                borderColor: 'rgb(42, 157, 143)',
+                data: this.dataSetTwo
+            },
+            {
+                label: 'Third Set',
+                backgroundColor: 'rgb(233, 196, 106)',
+                borderColor: 'rgb(233, 196, 106)',
+                data: this.dataSetThree
+            }]
+        }
 
-    months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August'
-    ];
+        this.mainChart = document.getElementById('main-chart')
 
-    data = {
-        labels: this.months,
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45, 66]
-        }]
-    };
+        this.config = {
+            type: "line",
+            data: this.dataSets,
+            options: {
+                animation: {
+                    type: 'number',
+                    easing: 'linear',
+                    delay: 350,
+                    from: 3
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Market Cap Over Time",
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-    config = {
-        type: "line",
-        data: this.data,
-        options: {}
-    };
-
-    myChart = new Chart(this.mainChart, this.config)
+    renderChart () {
+        return new Chart(this.mainChart, this.config)
+    }
     
 }

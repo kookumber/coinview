@@ -26,6 +26,7 @@ export class CoinInfo {
         this.coinData["Market Cap"] = this.formatter.format(response.market_data.market_cap.usd)
         this.coinData["Market Cap Rank"] = response.market_cap_rank
         this.coinData["All Time High"] = this.formatter.format(response.market_data.ath.usd)
+        this.coinData["% Change 24H"] = Number(response.market_data.price_change_percentage_24h_in_currency.usd / 100).toLocaleString(undefined, {style: 'percent', minimumFractionDigits: 2})
         // this.coinData["Circulating Supply"] = response.circulating_supply
     }
 
