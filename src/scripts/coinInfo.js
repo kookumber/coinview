@@ -18,7 +18,6 @@ export class CoinInfo {
         "tron": "1958",
         "stellar" : "512",
         "algorand": "4030",
-        "apecoin": "18876",
         "tether": "825",
         "uniswap": "7083",
         "chainlink": "1975",
@@ -67,11 +66,10 @@ export class CoinInfo {
         titleDiv.append(coinLogo)
         titleDiv.append(titleText)
 
-        console.log(titleDiv)
         coinLogo.setAttribute("src", `https://s2.coinmarketcap.com/static/img/coins/64x64/${this.logoHash[this.name]}.png`)
-        // widget.prepend(textNode) //Resets the title with the coin name
-        // widget.prepend(coinLogo)
+        
         widget.prepend(titleDiv)
+
         const card = widget.lastElementChild //Gets the ul element of the data widget class
 
         let cardLi = card.lastElementChild

@@ -10,8 +10,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&family=Oswald:wght@200;300;400&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="./dist/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
     <title>Coinview</title>
 </head>
 
@@ -28,12 +32,22 @@
         </div>
         <div class="nav">
             <div class="coin-selector">
+                <p>Select Data Time Frame</p>
+                <input type="text" name="daterange" value="01/01/2022 - 12/31/2022"/>
+                
                 <p>Select Coins to Compare</p> 
                 <ul>
                     <li class="selector" id="selector-one"></li>
                     <li class="selector" id="selector-two"></li>
                     <li class="selector" id="selector-three"></li>
                 </ul>
+
+                <p>Select Data Type</p>
+                <select id="select-data-type">
+                    <option value="market_caps">Market Cap</option>
+                    <option value="prices">Price</option>
+                    <option value="total_volumes">Total Volume Traded</option>
+                </select>
             </div>
         </div>
     </section>
@@ -60,6 +74,14 @@
     <section class="overview-chart">
         <div class="size-chart">Overview Chart</div>
     </section>
+
+    <script>
+        $(function(){ 
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            })
+        })
+    </script>
 </body>
 
 </html>

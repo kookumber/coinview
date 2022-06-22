@@ -1,4 +1,4 @@
-body, header, div, ul, li, span, select, canvas {
+body, header, div, ul, li, span, select, canvas, input {
     border-radius: 5px;
     font-size: 15px;
     font-weight: 400;

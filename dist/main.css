@@ -57,6 +57,16 @@ header {
     padding-left: 7.5px;
     font-weight: 600;
 }
+
+.coin-selector input {
+    height: 30px;
+    width: 89%;
+    border: 1px solid rgb(190, 186, 186);
+    margin-left: 10px;
+    padding-right: -15px;
+    border-radius: 5px;
+}
+
 .coin-selector ul {
     padding:0px;
     
@@ -68,7 +78,7 @@ header {
     
 }
 
-.selected-coin {
+.selection {
     width: 100%;
     list-style: none;
     position: relative;
@@ -78,6 +88,14 @@ header {
 
 .selected-coin:hover {
     background-color: rgb(136, 208, 187);
+}
+
+#select-data-type {
+    border-radius: 5px;
+    border: 1px solid rgb(190, 186, 186);
+    height: 30px;
+    width: 93%;
+    margin-left: 7.5px;
 }
 
 
@@ -133,7 +151,7 @@ header {
 .data-widget ul {
     padding: 0;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .data-widget ul li {

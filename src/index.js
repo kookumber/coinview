@@ -15,7 +15,6 @@ const coinNames = [
     "tron",
     "stellar",
     "algorand",
-    "apecoin",
     "tether",
     "uniswap",
     "chainlink",
@@ -44,7 +43,8 @@ async function mainSetup() {
 
     function addSelector(listEl){
         const selector = document.createElement("select")
-
+        selector.className = "selection"
+        
         selector.onchange = async function(e) {
             const parentId = this.parentElement.id
             const selected = this.options[this.selectedIndex].value
@@ -67,7 +67,7 @@ async function mainSetup() {
             
         }
 
-        selector.className = "selected-coin"
+        
 
         for (const val of coinNames) {
             let option = document.createElement("option")
@@ -77,6 +77,14 @@ async function mainSetup() {
         }
     
         listEl.appendChild(selector)
+
+        const datePicker = document.getElementsByName("daterange")[0]
+
+        datePicker.onchange = async function() {
+            const updatedChartResponse = new CoinChartData()
+            await updatedChartResponse.updateCoinArrs()
+            updatedChartResponse.renderChart()
+        }
     }
 
     // manually setting default values for the selectors to match the renders
@@ -89,10 +97,6 @@ async function mainSetup() {
     chartResponse.renderChart()
 
     
-}
-
-function updateDataCard() {
-
 }
 
 // document.addEventListener("DOMContentLoaded", mainSetup)

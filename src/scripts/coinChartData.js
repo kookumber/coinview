@@ -9,18 +9,23 @@ export class CoinChartData{
         this.coinThreeData = []
         this.dateArr = []
         this.selectedCoins = this.getSelectedVals() //["btc", "eth"]
-        // this.renderChart = this.renderChart()
+        
     }
 
     async updateCoinArrs(){
-        // let coinArrs = [this.coinOneData, this.coinTwoData, this.coinThreeData]
+        
+        const dateVals = document.getElementsByName("daterange")[0].value.split(" - ")
+        
+        let startDate = dateVals[0]
+        let endDate = dateVals[1]
+
         for(let i = 0; i < 3; i++){
             const coinStr = this.selectedCoins[i]
-            await this.getMarketHistory(coinStr, '2022-02-15', '2022-06-01', i)
+            await this.getMarketHistory(coinStr, startDate, endDate, i)
         }
     }
 
-    getMarketHistory(coinName,startDate, endDate, arrNum) {
+    getMarketHistory(coinName, startDate, endDate, arrNum) {
 
         startDate = Math.floor(new Date(startDate).getTime() / 1000)
         endDate = Math.floor(new Date(endDate).getTime() / 1000)
@@ -52,7 +57,7 @@ export class CoinChartData{
 
     //Function simply gets all our selector elements and saves the selected values into an array
     getSelectedVals(){
-        const selectors = document.getElementsByClassName("selected-coin")
+        const selectors = document.getElementsByClassName("selection")
         const selectedCoins = []
         for(const selector of selectors){
             selectedCoins.push(selector.value)
@@ -80,7 +85,7 @@ export class CoinChartData{
         
         //Renames the labels to match the coins data
         for(let i = 0; i < this.selectedCoins.length; i++){
-            chart.dataSets.datasets[i].label = this.selectedCoins[i]
+            chart.dataSets.datasets[i].label = this.selectedCoins[i][0].toUpperCase() + this.selectedCoins[i].slice(1)
         }
 
         chart.renderChart() //Runs the render function from the Charter instance

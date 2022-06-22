@@ -43,6 +43,16 @@
     padding-left: 7.5px;
     font-weight: 600;
 }
+
+.coin-selector input {
+    height: 30px;
+    width: 89%;
+    border: 1px solid rgb(190, 186, 186);
+    margin-left: 10px;
+    padding-right: -15px;
+    border-radius: 5px;
+}
+
 .coin-selector ul {
     padding:0px;
     
@@ -54,7 +64,7 @@
     
 }
 
-.selected-coin {
+.selection {
     width: 100%;
     list-style: none;
     position: relative;
@@ -64,6 +74,14 @@
 
 .selected-coin:hover {
     background-color: rgb(136, 208, 187);
+}
+
+#select-data-type {
+    border-radius: 5px;
+    border: 1px solid rgb(190, 186, 186);
+    height: 30px;
+    width: 93%;
+    margin-left: 7.5px;
 }
 
 
