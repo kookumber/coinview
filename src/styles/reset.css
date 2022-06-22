@@ -5,3 +5,8 @@ body, header, div, ul, li, span, select, canvas {
     color: #202121;
     font-family: "inter", sans-serif;
 }
+
+img {
+    height: 32px;
+    width: 32px
+}

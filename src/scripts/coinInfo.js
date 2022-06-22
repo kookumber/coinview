@@ -8,6 +8,24 @@ export class CoinInfo {
         // this.getAllCoinsInfo = getAllCoinsInfo()
     }
 
+    logoHash = {
+        "bitcoin": "1",
+        "ethereum": "1027",
+        "cardano": "2010",
+        "solana": "5426",
+        "polkadot": "6636",
+        "dogecoin": "74",
+        "tron": "1958",
+        "stellar" : "512",
+        "algorand": "4030",
+        "apecoin": "18876",
+        "tether": "825",
+        "uniswap": "7083",
+        "chainlink": "1975",
+        "filecoin": "2280",
+        "monero": "328"
+    }
+
     getAllCoinsInfo(coinName) {
         this.name = coinName
         
@@ -36,12 +54,25 @@ export class CoinInfo {
 
         widget.removeChild(widget.firstChild) //Removes existing card title text
 
+        let titleDiv = document.createElement("div")
+        titleDiv.className = "logo-title-div"
+        let titleText = document.createElement("p")
+        titleText.innerText = (this.name)[0].toUpperCase() + this.name.slice(1)
+
         let textNode = document.createTextNode(
             (this.name)[0].toUpperCase() + this.name.slice(1))
+        
+        let coinLogo = document.createElement("img")
 
-        widget.prepend(textNode) //Resets the title with the coin name
+        titleDiv.append(coinLogo)
+        titleDiv.append(titleText)
 
-        const card = widget.firstElementChild //Gets the ul element of the data widget class
+        console.log(titleDiv)
+        coinLogo.setAttribute("src", `https://s2.coinmarketcap.com/static/img/coins/64x64/${this.logoHash[this.name]}.png`)
+        // widget.prepend(textNode) //Resets the title with the coin name
+        // widget.prepend(coinLogo)
+        widget.prepend(titleDiv)
+        const card = widget.lastElementChild //Gets the ul element of the data widget class
 
         let cardLi = card.lastElementChild
 

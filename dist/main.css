@@ -110,6 +110,26 @@ header {
     
 }
 
+.logo-title-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-title-div img {
+    padding-right: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+.logo-title-div p {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+
 .data-widget ul {
     padding: 0;
     width: 100%;
