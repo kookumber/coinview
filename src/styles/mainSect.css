@@ -1,11 +1,13 @@
 .main-sect {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
     align-items: center;
     margin: auto;
     position: relative;
+    margin-top: 25px;
 }
 
 .chart {

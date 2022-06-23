@@ -3,19 +3,26 @@
   \*****************************************************************************************************/
 header {
     width: 100%;
+    max-width: 1400px;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 150px;
-    align-content: center;
+    border-radius: 0px;
+    margin: 0px auto 0px auto;
+    border-bottom: 3px solid rgb(190, 186, 186);
+}
+
+header h1 {
+    font-size: 32px;
 }
 
 #header-links {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 350px;
+    width: 460px;
 }
 
 #header-links a {
@@ -26,19 +33,22 @@ header {
 
 #header-links a:hover {
     border-bottom: 3px solid;
-    border-color: rgb(38, 70, 83);
+    font-weight: 600;
+    border-color: rgb(42, 157, 143);
 }
 /*!*******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/mainSect.css ***!
   \*******************************************************************************************************/
 .main-sect {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
     align-items: center;
     margin: auto;
     position: relative;
+    margin-top: 25px;
 }
 
 .chart {
@@ -127,9 +137,12 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: relative;
     width: 100%;
+    max-width: 1400px;
+    position: relative;
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .data-widget {
@@ -187,6 +200,14 @@ header {
 .data-widget ul li div:first-child{
     font-weight: 700;
 }
+/* 
+.data-widget:first-child {
+    background-color: rgba(38, 70, 83, 0.3);
+}
+
+.data-widget:nth-last-child(2) {
+    background-color: rgb(42, 157, 143, 0.3);
+} */
 /*!************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/overviewChart.css ***!
   \************************************************************************************************************/
@@ -239,6 +260,10 @@ footer div {
   \***********************************************************************************************************/
 .trending {
     height: 385px;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .trends {

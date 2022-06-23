@@ -1,18 +1,25 @@
 header {
     width: 100%;
+    max-width: 1400px;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 150px;
-    align-content: center;
+    border-radius: 0px;
+    margin: 0px auto 0px auto;
+    border-bottom: 3px solid rgb(190, 186, 186);
+}
+
+header h1 {
+    font-size: 32px;
 }
 
 #header-links {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 350px;
+    width: 460px;
 }
 
 #header-links a {
@@ -23,5 +30,6 @@ header {
 
 #header-links a:hover {
     border-bottom: 3px solid;
-    border-color: rgb(38, 70, 83);
+    font-weight: 600;
+    border-color: rgb(42, 157, 143);
 }
