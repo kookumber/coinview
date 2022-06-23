@@ -2,7 +2,6 @@
 @import './styles/header.css';
 @import './styles/mainSect.css';
 @import './styles/widgets.css';
-@import './styles/overviewChart.css';
 @import './styles/footer.css';
 @import './styles/trendingSect.css';
 
@@ -10,5 +9,10 @@
 body {
     width: 90%;
     margin: auto;
+    
 }
 
+.dark-mode {
+    background-color: rgb(34, 40, 49);
+    color: white;
+}

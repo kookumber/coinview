@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="assets/coinview_icon.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -34,7 +35,6 @@
     <section class="main-sect">
         <div class="chart">
             <canvas id="main-chart" width="700" height="300">
-                
             </canvas>
         </div>
         <div class="nav">
@@ -59,6 +59,17 @@
         </div>
     </section>
 
+    <!-- Script to pull in date picker -->
+    <script>
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            })
+        })
+    </script>
+
+<!-------------- Widget Skeleton Setup ----------------->
+
     <section class="widgets">
 
         <div class="data-widget" id="1">
@@ -78,26 +89,26 @@
 
     </section>
 
+<!-------------- Trending Coins & Tree Map Section ----------------->
+
     <section class="trending">
         <div class="trend" id="trending-coins">
             <h4 id="trending-coins-header">TRENDING COINS</h4>
             <ul>
             </ul>
         </div>
-        <div class="trend" id="trending-news">
+        <div class="trend" id="tree-map">
             <script src="https://widgets.coingecko.com/coingecko-coin-heatmap-widget.js"></script>
-            <coingecko-coin-heatmap-widget height="360" locale="en"></coingecko-coin-heatmap-widget>
+            <coingecko-coin-heatmap-widget height="360" locale="en">
+
+
+            </coingecko-coin-heatmap-widget>
         </div>
     </section>
 
-    <script>
-        $(function(){ 
-            $('input[name="daterange"]').daterangepicker({
-                opens: 'left'
-            })
-        })
-    </script>
+    
 
+<!-------------- Footer Section ----------------->
     <footer>
         <div class="profile-links">
             <a href="https://github.com/kookumber/coinview"><img src="assets/GitHub-Mark-32px.png" alt="Github Repo"></a>
