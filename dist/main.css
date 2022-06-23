@@ -5,10 +5,29 @@ header {
     width: 100%;
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 120px;
+    height: 150px;
+    align-content: center;
 }
 
+#header-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 350px;
+}
+
+#header-links a {
+    text-decoration: none;
+    height: 30px;
+    border-radius: 0;
+}
+
+#header-links a:hover {
+    border-bottom: 3px solid;
+    border-color: rgb(38, 70, 83);
+}
 /*!*******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/mainSect.css ***!
   \*******************************************************************************************************/
@@ -16,14 +35,14 @@ header {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin: auto;
     position: relative;
 }
 
 .chart {
-    width: 700px;
+    width: 75%;
     height: 370px;
     border: 1px solid rgb(190, 186, 186);
     align-items: center;
@@ -37,7 +56,7 @@ header {
 
 .nav {
     height: 370px;
-    width: 210px;
+    width: 22%;
     align-items: center;
     border: 1px solid rgb(190, 186, 186);
     box-shadow: 0 0.125rem 0.25rem rgb(19 31 51 / 10%);
@@ -107,14 +126,14 @@ header {
 .widgets {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .data-widget {
-    width: 300px;
+    width: 31%;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -149,7 +168,8 @@ header {
 
 
 .data-widget ul {
-    padding: 0;
+    padding-left: 15px;
+    padding-right: 15px;
     width: 100%;
     margin-top: 20px;
 }
@@ -160,36 +180,124 @@ header {
     justify-content: space-between;
     list-style: none;
     margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .data-widget ul li div:first-child{
-    font-weight: 600;
+    font-weight: 700;
 }
 /*!************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/overviewChart.css ***!
   \************************************************************************************************************/
-.overview-chart {
+.trending {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    height: 300px;
+    margin-top: 40px;
 }
 
-.size-chart {
-    width: 930px;
-    height: 300px;
+.trend {
     border: 1px solid rgb(190, 186, 186);
     box-shadow: 0 0.125rem 0.25rem rgb(19 31 51 / 10%);
 }
 
+#trending-coins {
+    width: 31%;
+}
 
+#trending-news {
+    width: 65.5%;
+}
+
+
+/*!*****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/footer.css ***!
+  \*****************************************************************************************************/
+footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 45px;
+
+}
+
+footer div {
+    width: 125px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+/*!***********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/trendingSect.css ***!
+  \***********************************************************************************************************/
+.trending {
+    height: 385px;
+}
+
+.trends {
+    height: 100%;
+}
+
+#trending-coins-header {
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+#trending-coins ul {
+    padding: 0;
+}
+
+#trending-coins ul li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 10px;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+#trending-coins ul li div:first-child{
+    width: 19%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#trending-coins ul li div:last-child {
+    width: 75%;
+    margin: 0px;
+}
+
+#trending-coins ul li div:last-child h4 {
+    padding: 0px;
+    margin: 0px;
+}
+
+#trending-coins ul li div:last-child p {
+    font-size: 12px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.cg-container {
+    border: none;
+}
+
+.cg-widget {
+    border: none;
+}
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 body {
-  width: 960px;
+  width: 90%;
   margin: auto;
-  height: 100%;
 }

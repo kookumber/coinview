@@ -38,19 +38,20 @@ export class CoinChartData{
 
     //Using this function to run inside of getMarketHistory function; which will store fetch responses in different data arrs
     saveMarketHistory(response, arrNum) { 
-        let marketCaps = response.market_caps
-        marketCaps.forEach((el) => {
+        let selectedDataType = document.getElementById("select-data-type").value
+        let selectedData = response[selectedDataType]
+        selectedData.forEach((el) => {
             let date = new Date(el[0]).toLocaleDateString("en-US")
-            let marketCap = el[1]
-            if(this.dateArr.length < marketCaps.length){
+            let dataArr = el[1]
+            if(this.dateArr.length < selectedData.length){
                 this.dateArr.push(date)
             }
             if(arrNum === 0) {
-                this.coinOneData.push(marketCap)
+                this.coinOneData.push(dataArr)
             } else if(arrNum === 1) {
-                this.coinTwoData.push(marketCap)
+                this.coinTwoData.push(dataArr)
             } else {
-                this.coinThreeData.push(marketCap)
+                this.coinThreeData.push(dataArr)
             }
         })
     }

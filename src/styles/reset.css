@@ -1,8 +1,8 @@
-body, header, div, ul, li, span, select, canvas, input {
+body, header, div, ul, li, span, select, canvas, input, tspan, a {
     border-radius: 5px;
     font-size: 15px;
     font-weight: 400;
-    color: #202121;
+    color: rgb(91, 97, 110);
     font-family: "inter", sans-serif;
 }
 

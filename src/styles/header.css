@@ -2,6 +2,26 @@ header {
     width: 100%;
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 120px;
+    height: 150px;
+    align-content: center;
+}
+
+#header-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 350px;
+}
+
+#header-links a {
+    text-decoration: none;
+    height: 30px;
+    border-radius: 0;
+}
+
+#header-links a:hover {
+    border-bottom: 3px solid;
+    border-color: rgb(38, 70, 83);
 }

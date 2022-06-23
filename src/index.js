@@ -1,10 +1,10 @@
 // entry file for js
 import {CoinInfo} from './scripts/coinInfo.js'
 import {CoinChartData} from './scripts/coinChartData.js'
-import {Charter} from './scripts/overviewChart.js'
+import {TrendingCoins} from './scripts/trendingCoins.js'
 
 
-
+//Array used to set options for dropdown of coins to compare
 const coinNames = [
     "bitcoin",
     "ethereum",
@@ -35,6 +35,10 @@ async function mainSetup() {
     await cardData.getAllCoinsInfo("solana")
     cardData.renderCardData("3")
 
+    const trendingOne = new TrendingCoins()
+    await trendingOne.getTrendingCoins()
+
+    //--------- Start of selector build out ---------
     const selectors = document.getElementsByClassName("selector")
 
     for( const selector of selectors) {
@@ -46,6 +50,8 @@ async function mainSetup() {
         selector.className = "selection"
         
         selector.onchange = async function(e) {
+
+            //Re renders data widgets when new coin is selected
             const parentId = this.parentElement.id
             const selected = this.options[this.selectedIndex].value
 
@@ -59,16 +65,12 @@ async function mainSetup() {
                 cardData.renderCardData("3")
             }
 
-            //Add code to re-run graphing
-
-            const updatedChartResponse = new CoinChartData()
-            await updatedChartResponse.updateCoinArrs()
-            updatedChartResponse.renderChart()
+            //Re renders charts when new coin is selected
+            reRenderChart()
             
         }
 
-        
-
+        //Creates options for the selectors based on hard-coded coin names array above
         for (const val of coinNames) {
             let option = document.createElement("option")
             option.value = val
@@ -77,26 +79,34 @@ async function mainSetup() {
         }
     
         listEl.appendChild(selector)
-
-        const datePicker = document.getElementsByName("daterange")[0]
-
-        datePicker.onchange = async function() {
-            const updatedChartResponse = new CoinChartData()
-            await updatedChartResponse.updateCoinArrs()
-            updatedChartResponse.renderChart()
-        }
     }
+    //------ End of addSelector function ------
 
-    // manually setting default values for the selectors to match the renders
+    
+
+    //Manually setting default values for the selectors to match the renders
     document.getElementById("selector-one").firstChild.children[0].selected = "selected"
     document.getElementById("selector-two").firstChild.children[1].selected = "selected"
     document.getElementById("selector-three").firstChild.children[3].selected = "selected"
     
-    const chartResponse = new CoinChartData()
-    await chartResponse.updateCoinArrs()
-    chartResponse.renderChart()
+    reRenderChart()
 
+    // Re renders chart when new dates are selected
+    const datePicker = document.getElementsByName("daterange")[0]
+    datePicker.onchange = reRenderChart
     
+
+    const selectedDataType = document.getElementById("select-data-type")
+    selectedDataType.onchange = reRenderChart
+
+}
+//--------- End of Main Setup function --------->
+
+//--------- Helper function to reRender the charts --------->
+const reRenderChart = async function() {
+    const updatedChartResponse = new CoinChartData()
+    await updatedChartResponse.updateCoinArrs()
+    updatedChartResponse.renderChart()
 }
 
 // document.addEventListener("DOMContentLoaded", mainSetup)

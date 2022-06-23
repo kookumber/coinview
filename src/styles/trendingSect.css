@@ -1,0 +1,57 @@
+.trending {
+    height: 385px;
+}
+
+.trends {
+    height: 100%;
+}
+
+#trending-coins-header {
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+#trending-coins ul {
+    padding: 0;
+}
+
+#trending-coins ul li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 10px;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+#trending-coins ul li div:first-child{
+    width: 19%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#trending-coins ul li div:last-child {
+    width: 75%;
+    margin: 0px;
+}
+
+#trending-coins ul li div:last-child h4 {
+    padding: 0px;
+    margin: 0px;
+}
+
+#trending-coins ul li div:last-child p {
+    font-size: 12px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.cg-container {
+    border: none;
+}
+
+.cg-widget {
+    border: none;
+}

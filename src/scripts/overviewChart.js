@@ -31,7 +31,8 @@ export class Charter {
         }
 
         this.mainChart = document.getElementById('main-chart')
-
+        this.dataType = document.getElementById('select-data-type')
+        this.dataTypeText = this.dataType.options[(this.dataType).selectedIndex].innerText
         this.config = {
             type: "line",
             data: this.dataSets,
@@ -50,7 +51,7 @@ export class Charter {
                 plugins: {
                     title: {
                         display: true,
-                        text: "Market Cap Over Time",
+                        text: `${this.dataTypeText} Over Time`,
                         font: {
                             size: 16
                         }
