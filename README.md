@@ -20,9 +20,10 @@ Coinview is a web page that collates cryptocurrency data from CoinGecko and char
 - Node JS
 - Webpack
 
-## Application Preview
+## Application Preview:
 
-![coinview_demo](https://user-images.githubusercontent.com/82901917/188753401-103745a1-bef3-4167-ae17-619c7cd8eda4.jpeg)
+![coinview_demo_2](https://user-images.githubusercontent.com/82901917/188788879-045e888c-8ef8-46a1-9582-a3cdf9fa11ad.gif)
+
 
 ## Code Snippets:
 
