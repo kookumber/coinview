@@ -22,3 +22,8 @@ Coinview is a web page that collates cryptocurrency data from CoinGecko and char
 
 ## Application Preview
 
+![coinview_demo](https://user-images.githubusercontent.com/82901917/188753401-103745a1-bef3-4167-ae17-619c7cd8eda4.jpeg)
+
+## Code Snippets:
+
+
