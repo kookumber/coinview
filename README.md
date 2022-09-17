@@ -2,6 +2,8 @@
 
 ## Description
 
+[Live Link](https://kookumber.github.io/coinview/)
+
 Coinview is a web page that collates cryptocurrency data from CoinGecko and charts it. User has options to select specific cryptocurrencies, time frame for data, and can also specify certain types of data they might want to see. The site will then render a visualization of the data using the ChartJS library.
 
 ## Key Features:
